@@ -29,18 +29,19 @@ class PokeList extends Component {
     const { pokeList } = this.state;
 
     return ( 
-    <div className="flex-1 text-gray-700 bg-gray-400 px-4 py-2 m-2">
-
-        <div>
+    <div className="flex-1 text-gray-700 bg-gray-300 px-4 py-2 m-2">
+        <div className="flex flex-wrap -mx-2 overflow-hidden">
          {pokeList.map((pokeList, index) => {
           let imgNum = index+1; 
           imgNum = imgNum.toString();
           imgNum = imgNum.padStart(3, '0');   
           return (
-            <div onClick={() => this.changeId(index+1)}>
-            <img src={'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + imgNum + '.png'}></img><br></br>
-            {pokeList.name}
+            <div className="my-2 px-2 w-1/3 overflow-hidden">
+              <div className="rounded bg-gray-500 hover:bg-gray-700" onClick={() => this.changeId(index+1)}>
+              <img className="object-contain h-48 w-full" src={'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + imgNum + '.png'}></img>
+               </div>
             </div>
+
           )
         })}
       </div>

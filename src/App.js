@@ -27,9 +27,12 @@ render() {
  
 
   return ( 
-    <div className="flex bg-gray-200">
-      <PokeList updatePokeDetail={this.updatePokeDetail.bind(this)} />
-      <PokeDetail pokeId={this.state.pokeId} />
+    <div>
+        <div className="flex">
+
+          <PokeList updatePokeDetail={this.updatePokeDetail.bind(this)} />
+          <PokeDetail pokeId={this.state.pokeId} />
+        </div>
     </div>
 
   
