@@ -12,7 +12,7 @@ class App extends Component {
   
      
       this.state = {
-        pokeId: 5
+        pokeId: 0
       };
     }
 

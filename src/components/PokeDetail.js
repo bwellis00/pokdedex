@@ -9,7 +9,7 @@ class PokeDetail extends Component {
     
        
         this.state = {
-          pokeData: ""
+          pokeData: []
         };
       }
 
@@ -24,19 +24,24 @@ class PokeDetail extends Component {
     if (this.props.pokeId !== prevProps.pokeId) {
         fetch('https://pokeapi.co/api/v2/pokemon/' + this.props.pokeId)
         .then(response => response.json())
-        .then(data => this.setState({ pokeData: data.name }));
+        .then(data => this.setState({ pokeData: data }));
     }
   }
 
 
 
   render() {
+    let { pokeId } = this.props
+    pokeId = pokeId.toString();
+    pokeId = pokeId.padStart(3, '0'); 
 
-   
+    const {name, weight, height} = this.state.pokeData
 
     return ( 
     <div className="flex-1 text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">
-        {this.state.pokeData}
+        <h1 className="text-6xl uppercase">{name}</h1>
+        <img className="object-contain h-64 w-full" src={'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + pokeId + '.png'}></img>
+        Weight: {weight} <br></br> Height: {height}
     </div>
   
     
