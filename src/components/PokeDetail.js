@@ -43,7 +43,7 @@ class PokeDetail extends Component {
         <img className="object-contain h-64 w-full" src={'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + pokeId + '.png'}></img>
         Weight: {weight} <br></br> Height: {height}
     </div>
-  
+  //convert decimetre to feet
     
     )
   }
