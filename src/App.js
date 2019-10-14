@@ -12,14 +12,16 @@ class App extends Component {
   
      
       this.state = {
-        pokeId: 1
+        pokeId: 1,
+        loading: true
       };
     }
 
   updatePokeDetail(value){
-      this.setState(
-        {pokeId: value}
-        );
+      this.setState({
+        pokeId: value,
+        loading: true
+        });
   }
 
 render() {
@@ -31,7 +33,7 @@ render() {
         <div className="flex">
 
           <PokeList updatePokeDetail={this.updatePokeDetail.bind(this)} />
-          <PokeDetail pokeId={this.state.pokeId} />
+          <PokeDetail pokeId={this.state.pokeId} loading={this.state.loading}/>
         </div>
     </div>
 
