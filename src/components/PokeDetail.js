@@ -43,6 +43,8 @@ class PokeDetail extends Component {
     let pounds  = weight * 0.2204622622
     pounds = Math.round(10*pounds)/10;  
 
+  //get base stats out to create graph
+
     return ( 
     <div className="flex-1 text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">
         <h1 className="text-6xl uppercase">{name}</h1>
