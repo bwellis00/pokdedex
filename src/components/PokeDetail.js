@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Loading from './Loading';
-import { throwStatement } from '@babel/types';
-
 
 class PokeDetail extends Component {
 
@@ -41,7 +39,7 @@ class PokeDetail extends Component {
 
     let { loading } = this.state
 
-    let {name, weight, height} = this.state.pokeData
+    let {name, weight, height, stats} = this.state.pokeData
     let realFeet = ((height/10)*39.370) / 12
     let feet = Math.floor(realFeet)
     let inches = Math.round((realFeet - feet) * 12)
@@ -49,13 +47,26 @@ class PokeDetail extends Component {
     let pounds  = weight * 0.2204622622
     pounds = Math.round(10*pounds)/10; 
 
-  //get base stats out to create graph
+    
+
 
     return ( 
     <div className="flex-1 text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">
         { loading ? <Loading /> : <div><h1 className="text-6xl uppercase">{name}</h1>
-        <img className="object-contain h-64 w-full" src={'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + pokeId + '.png'} alt={name}></img>
-        Weight: {pounds}lbs <br></br> Height: {feet}&prime; {inches}&Prime;</div>}
+        <img className="object-contain h-64 w-full" src={'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + pokeId + '.png'} alt={name} />
+        Weight: {pounds}lbs <br></br> Height: {feet}&prime; {inches}&Prime;<br></br><br></br>
+        
+      {stats.map((stats, index) => {
+          return (
+            <div key={index}>
+              {stats.stat.name} - {stats.base_stat}
+            </div>
+
+          )
+        })}
+    
+        
+        </div>}
 
 
         
