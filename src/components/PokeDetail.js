@@ -40,7 +40,7 @@ class PokeDetail extends Component {
 
     let { loading } = this.state
 
-    let {name, weight, height, stats} = this.state.pokeData
+    let {name, weight, height, stats, types} = this.state.pokeData
     let realFeet = ((height/10)*39.370) / 12
     let feet = Math.floor(realFeet)
     let inches = Math.round((realFeet - feet) * 12)
@@ -57,6 +57,17 @@ class PokeDetail extends Component {
         <img className="object-contain h-64 w-full" src={'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + pokeId + '.png'} alt={name} />
         Weight: {pounds}lbs <br></br> Height: {feet}&prime; {inches}&Prime;<br></br><br></br>
         
+        {types.map((types, index) => {
+             
+          return (
+            <div key={index}>
+              {types.type.name} 
+            </div>
+
+          )
+        })}
+
+
         <PokeDetailStats stats={stats} />
         
         </div>}
