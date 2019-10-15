@@ -29,7 +29,7 @@ class PokeList extends Component {
     const { pokeList } = this.state;
 
     return ( 
-    <div className="flex-1 text-gray-700 bg-gray-300 px-4 py-2 m-2">
+    <div className="w-1/2 text-gray-700 bg-gray-300 px-4 py-2">
         <div className="flex flex-wrap -mx-2 overflow-hidden">
          {pokeList.map((pokeList, index) => {
           let imgNum = index+1; 

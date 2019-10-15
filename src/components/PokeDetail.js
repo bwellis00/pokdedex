@@ -52,7 +52,7 @@ class PokeDetail extends Component {
 
 
     return ( 
-    <div className="flex-1 text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">
+    <div className="w-1/2 text-gray-700 text-center bg-gray-400 px-4 py-2 fixed bottom-0 right-0 h-screen">
         { loading ? <Loading /> : <div><h1 className="text-6xl uppercase">{name}</h1>
         <img className="object-contain h-64 w-full" src={'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + pokeId + '.png'} alt={name} />
         Weight: {pounds}lbs <br></br> Height: {feet}&prime; {inches}&Prime;<br></br><br></br>
