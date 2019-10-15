@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Loading from './Loading';
+import PokeDetailStats from './PokeDetailStats';
 
 class PokeDetail extends Component {
 
@@ -56,15 +57,7 @@ class PokeDetail extends Component {
         <img className="object-contain h-64 w-full" src={'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + pokeId + '.png'} alt={name} />
         Weight: {pounds}lbs <br></br> Height: {feet}&prime; {inches}&Prime;<br></br><br></br>
         
-      {stats.map((stats, index) => {
-          return (
-            <div key={index}>
-              {stats.stat.name} - {stats.base_stat}
-            </div>
-
-          )
-        })}
-    
+        <PokeDetailStats stats={stats} />
         
         </div>}
 
