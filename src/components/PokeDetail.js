@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Loading from './Loading';
 import PokeDetailStats from './PokeDetailStats';
+import PokeDetailTypes from './PokeDetailTypes';
 
 class PokeDetail extends Component {
 
@@ -24,7 +25,7 @@ class PokeDetail extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.pokeId !== prevProps.pokeId) {
-        this.setState.loading = this.props.loading
+        this.setState({loading: this.props.loading}) 
         fetch('https://pokeapi.co/api/v2/pokemon/' + this.props.pokeId)
         .then(response => response.json())
         .then(data => this.setState({ pokeData: data, loading: false }));
@@ -48,6 +49,7 @@ class PokeDetail extends Component {
     let pounds  = weight * 0.2204622622
     pounds = Math.round(10*pounds)/10; 
 
+    console.log(loading)
     
 
 
@@ -55,17 +57,22 @@ class PokeDetail extends Component {
     <div className="w-1/2 text-gray-700 text-center bg-gray-400 px-4 py-2 fixed bottom-0 right-0 h-screen">
         { loading ? <Loading /> : <div><h1 className="text-6xl uppercase">{name}</h1>
         <img className="object-contain h-64 w-full" src={'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + pokeId + '.png'} alt={name} />
-        Weight: {pounds}lbs <br></br> Height: {feet}&prime; {inches}&Prime;<br></br><br></br>
+        <div className="flex">
+          <div className="w-1/3">
+              <h2 className="text-4xl uppercase">Weight</h2>
+              <p className="text-2xl">{pounds}lbs</p>
+          </div>
+          <div className="w-1/3">
+              <h2 className="text-4xl uppercase">Height</h2>
+              <p className="text-2xl">{feet}&prime; {inches}&Prime;</p>
+          </div>
+          <div className="w-1/3">
+              <h2 className="text-4xl uppercase">Types</h2>
+              <PokeDetailTypes types={types}/>
+          </div>
+        </div>
+ 
         
-        {types.map((types, index) => {
-             
-          return (
-            <div key={index}>
-              {types.type.name} 
-            </div>
-
-          )
-        })}
 
 
         <PokeDetailStats stats={stats} />
