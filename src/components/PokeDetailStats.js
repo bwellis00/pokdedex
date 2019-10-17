@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { stat } from 'fs';
 
 class PokeDetailStats extends Component {
 
@@ -9,7 +8,7 @@ class PokeDetailStats extends Component {
 
     return ( 
     <div className="">
-<h2 className="text-4xl">BASE STATS</h2>
+<h2 className="text-4xl uppercase">Base Stats</h2>
 {stats.map((stats, index) => {
             //exponential smoothing for %'s. formula taken from pokedex.org
             let statPercent = -255 / Math.pow(255, 2)
