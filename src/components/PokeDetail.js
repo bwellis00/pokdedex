@@ -48,10 +48,9 @@ class PokeDetail extends Component {
 
     let pounds  = weight * 0.2204622622
     pounds = Math.round(10*pounds)/10; 
-
-    console.log(loading)
     
-
+    if (!types) {}
+    else {console.log(types[0].type.name)}
 
     return ( 
     <div className="w-1/2 text-gray-700 text-center bg-gray-400 px-4 py-2 fixed bottom-0 right-0 h-screen">
@@ -71,11 +70,12 @@ class PokeDetail extends Component {
               <PokeDetailTypes types={types}/>
           </div>
         </div>
- 
+
+        
         
 
 
-        <PokeDetailStats stats={stats} />
+        <PokeDetailStats stats={stats} type={types[0].type.name}/>
         
         </div>}
 
