@@ -37,7 +37,7 @@ class PokeList extends Component {
           imgNum = imgNum.padStart(3, '0');   
           return (
             <div key={index} className="my-2 px-2 w-1/3 overflow-hidden">
-              <div className="rounded bg-gray-500 hover:bg-gray-700" onClick={() => this.changeId(index+1)}>
+              <div className="rounded bg-gray-500 hover:bg-gray-700 cursor-pointer" onClick={() => this.changeId(index+1)}>
               <img className="object-contain h-48 w-full" src={'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + imgNum + '.png'} alt={pokeList.name}></img>
                </div>
             </div>
